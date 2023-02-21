@@ -19,12 +19,13 @@
 //     }
 //   })
 //   .listen(3008);
+let debug = require("debug")("app.js");
 const express = require("express");
 const app = express();
 app.use(express.static("public"));
 
-app.listen(3005, () => {
-  console.log("node express work on 3005");
+app.listen(3003, () => {
+  console.log("node express work on 3004");
 });
 
 app.get("/", function (req, resp) {
