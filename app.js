@@ -20,17 +20,22 @@
 //   })
 //   .listen(3008);
 let debug = require("debug")("app.js");
+
 const express = require("express");
 const app = express();
+
 app.use(express.static("public"));
+app.set("view engine", "pug");
 
 app.listen(3003, () => {
   console.log("node express work on 3004");
 });
 
 app.get("/", function (req, resp) {
-  console.log("load /");
-  resp.render("index.html");
+  resp.render("main", {
+    foo: "Hello",
+    bar: 7,
+  });
 });
 
 app.get("/cat", function (req, resp) {
